@@ -6,7 +6,6 @@
     <title>Zarias - متجر مستحضرات التجميل</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        /* ========== جميع الأنماط كما هي (لم تتغير) ========== */
         * {
             margin: 0;
             padding: 0;
@@ -86,137 +85,7 @@
             font-weight: bold;
         }
 
-        /* ========== سلايدر الإعلانات ========== */
-        .slider-container {
-            max-width: 1400px;
-            margin: 0.8rem auto 0 auto;
-            padding: 0 1rem;
-            position: relative;
-            overflow: hidden;
-            border-radius: 16px;
-        }
-
-        .slider {
-            position: relative;
-            width: 100%;
-            height: 160px;
-            overflow: hidden;
-            border-radius: 16px;
-        }
-
-        .slides {
-            display: flex;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .slide {
-            min-width: 100%;
-            height: 100%;
-            position: relative;
-            border-radius: 16px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .slide-content {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(90deg, rgba(0,0,0,0.7), rgba(0,0,0,0.3));
-            color: white;
-            padding: 0.8rem;
-            text-align: center;
-        }
-
-        .slide-content h3 {
-            font-size: 1rem;
-            font-weight: bold;
-            margin-bottom: 0.2rem;
-        }
-
-        .slide-content p {
-            font-size: 0.7rem;
-            opacity: 0.9;
-        }
-
-        .discount-badge-slider {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #ff6b6b;
-            color: white;
-            padding: 4px 10px;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            font-weight: bold;
-            z-index: 5;
-        }
-
-        .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            cursor: pointer;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: 0.3s;
-        }
-
-        .slider-btn:hover {
-            background: rgba(0,0,0,0.8);
-        }
-
-        .slider-btn.prev {
-            left: 10px;
-        }
-
-        .slider-btn.next {
-            right: 10px;
-        }
-
-        .slider-dots {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            gap: 8px;
-            z-index: 10;
-        }
-
-        .dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.5);
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .dot.active {
-            width: 20px;
-            border-radius: 10px;
-            background: white;
-        }
-
-        /* ========== باقي الأنماط (نفس الكود السابق) ========== */
+        /* ========== البحث ========== */
         .search-modal {
             display: none;
             position: fixed;
@@ -238,82 +107,7 @@
         .search-result-item { padding: 0.6rem; border-bottom: 1px solid #eee; cursor: pointer; font-size: 0.8rem; }
         .search-result-item:hover { background: #FFF0F5; color: #9B2C6B; }
 
-        .messages-modal {
-            display: none;
-            position: fixed;
-            top: 60px;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: white;
-            z-index: 300;
-            overflow-y: auto;
-            animation: slideUp 0.3s ease;
-        }
-        .messages-modal.active { display: block; }
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        .messages-header {
-            background: linear-gradient(135deg, #9B2C6B, #7B2354);
-            color: white;
-            padding: 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-        .messages-header h3 { font-size: 1.1rem; }
-        .close-messages { background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer; }
-        .message-item {
-            background: white;
-            margin: 0.5rem;
-            padding: 0.8rem;
-            border-radius: 16px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            border-right: 4px solid #9B2C6B;
-        }
-        .message-item.unread { background: #FFF0F5; border-right-color: #FFB347; }
-        .message-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 0.5rem;
-        }
-        .message-order-number { font-weight: bold; color: #9B2C6B; font-size: 0.9rem; }
-        .message-date { font-size: 0.7rem; color: #999; }
-        .message-customer { font-size: 0.85rem; margin-bottom: 0.3rem; }
-        .message-customer i { width: 20px; color: #9B2C6B; }
-        .message-status {
-            display: inline-block;
-            padding: 2px 8px;
-            border-radius: 20px;
-            font-size: 0.7rem;
-            margin-top: 0.3rem;
-        }
-        .status-pending { background: #FFB347; color: #333; }
-        .status-shipped { background: #2196F3; color: white; }
-        .status-delivered { background: #4CAF50; color: white; }
-        .message-actions {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.8rem;
-        }
-        .message-actions button {
-            flex: 1;
-            padding: 0.4rem;
-            border-radius: 20px;
-            border: none;
-            cursor: pointer;
-            font-size: 0.7rem;
-            font-weight: bold;
-        }
-        .btn-view { background: #9B2C6B; color: white; }
-        .btn-update { background: #FFB347; color: #333; }
-
+        /* ========== القائمة الجانبية ========== */
         .sidebar {
             position: fixed;
             top: 0;
@@ -393,6 +187,7 @@
         .social-link.whatsapp { background: #25D366; }
         .social-link.tiktok { background: #000000; }
 
+        /* ========== شريط الفلتر ========== */
         .filter-bar {
             display: flex;
             justify-content: space-between;
@@ -425,6 +220,7 @@
             white-space: nowrap;
         }
 
+        /* ========== المنتجات ========== */
         .container {
             max-width: 1400px;
             margin: 1rem auto;
@@ -442,7 +238,6 @@
             box-shadow: 0 2px 10px rgba(0,0,0,0.06);
             transition: all 0.3s ease;
             position: relative;
-            cursor: pointer;
         }
         .product-card:hover {
             transform: translateY(-3px);
@@ -458,10 +253,6 @@
             font-size: 0.85rem;
             font-weight: 800;
             margin-bottom: 0.2rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
         }
         .product-rating {
             display: flex;
@@ -537,6 +328,7 @@
         .favorite-icon i { font-size: 0.8rem; color: #ccc; }
         .favorite-icon.active i { color: #ff3366; }
 
+        /* أزرار التعديل والحذف */
         .product-actions {
             position: absolute;
             top: 8px;
@@ -562,6 +354,7 @@
         .edit-product-btn { color: #FFB347; }
         .delete-product-btn { color: #ff6b6b; }
 
+        /* ========== سلة التسوق ========== */
         .cart-sidebar {
             position: fixed;
             top: 0;
@@ -618,6 +411,7 @@
             border-top: 2px solid #eee;
         }
 
+        /* شعارات طرق الدفع */
         .payment-options {
             margin: 0.8rem 0;
             padding: 0.8rem;
@@ -636,16 +430,6 @@
         }
         .payment-option:hover { background: #FFF0F5; }
 
-        .vodafone-logo {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: #E60000;
-            padding: 0.3rem 0.8rem;
-            border-radius: 30px;
-            font-size: 0.7rem;
-            color: white;
-        }
         .instapay-logo {
             display: inline-flex;
             align-items: center;
@@ -656,7 +440,18 @@
             font-size: 0.7rem;
             color: white;
         }
+        .vodafone-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: #E60000;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.7rem;
+            color: white;
+        }
 
+        /* نافذة البطاقة */
         .card-modal {
             display: none;
             position: fixed;
@@ -699,51 +494,7 @@
         .confirm-card { background: linear-gradient(135deg, #9B2C6B, #7B2354); color: white; }
         .cancel-card { background: #ccc; color: #333; }
 
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        .modal.active { display: flex; }
-        .modal-content {
-            background: white;
-            width: 90%;
-            max-width: 450px;
-            border-radius: 20px;
-            padding: 1.2rem;
-            text-align: center;
-        }
-        .modal-content input, .modal-content select, .modal-content textarea {
-            width: 100%;
-            padding: 0.6rem;
-            margin: 0.4rem 0;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-        }
-        .image-preview {
-            width: 100%;
-            height: 100px;
-            border: 2px dashed #ddd;
-            border-radius: 10px;
-            margin: 0.5rem 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-size: cover;
-            background-position: center;
-            cursor: pointer;
-            flex-direction: column;
-            gap: 0.3rem;
-            font-size: 0.7rem;
-        }
-
+        /* نافذة تعديل المنتج */
         .edit-modal {
             display: none;
             position: fixed;
@@ -763,8 +514,6 @@
             max-width: 450px;
             border-radius: 20px;
             padding: 1.2rem;
-            max-height: 85vh;
-            overflow-y: auto;
         }
         .edit-content h2 { text-align: center; margin-bottom: 1rem; color: #9B2C6B; }
         .edit-content input, .edit-content select, .edit-content textarea {
@@ -802,105 +551,6 @@
         .save-edit { background: linear-gradient(135deg, #9B2C6B, #7B2354); color: white; }
         .cancel-edit { background: #ccc; color: #333; }
 
-        .product-detail-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.8);
-            z-index: 2000;
-            justify-content: center;
-            align-items: center;
-        }
-        .product-detail-modal.active { display: flex; }
-        .detail-content {
-            background: white;
-            width: 90%;
-            max-width: 450px;
-            border-radius: 20px;
-            overflow: hidden;
-            max-height: 85vh;
-            overflow-y: auto;
-        }
-        .detail-img { width: 100%; height: 220px; object-fit: cover; }
-        .detail-body { padding: 1rem; }
-        .detail-title { font-size: 1.2rem; }
-        .detail-price { font-size: 1.3rem; }
-        .detail-desc { font-size: 0.85rem; }
-
-        .admin-panel {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.5);
-            z-index: 2500;
-            justify-content: center;
-            align-items: center;
-        }
-        .admin-panel.active { display: flex; }
-        .admin-content {
-            background: white;
-            width: 95%;
-            max-width: 1000px;
-            border-radius: 20px;
-            padding: 1rem;
-            max-height: 90vh;
-            overflow-y: auto;
-        }
-        .admin-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
-        .admin-header h2 { color: #9B2C6B; font-size: 1.2rem; }
-        .close-admin { background: none; border: none; font-size: 1.2rem; cursor: pointer; }
-        .admin-stats {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.8rem;
-            margin-bottom: 1rem;
-        }
-        .stat-card {
-            background: linear-gradient(135deg, #9B2C6B, #7B2354);
-            color: white;
-            padding: 0.6rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-        .stat-card .number { font-size: 1.3rem; font-weight: bold; }
-        .stat-card .label { font-size: 0.7rem; opacity: 0.9; }
-
-        .admin-table { width: 100%; border-collapse: collapse; font-size: 0.7rem; }
-        .admin-table th, .admin-table td { padding: 0.4rem; text-align: right; border-bottom: 1px solid #eee; }
-        .admin-table th { background: #f5f5f5; color: #9B2C6B; }
-
-        .track-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.7);
-            z-index: 2500;
-            justify-content: center;
-            align-items: center;
-        }
-        .track-modal.active { display: flex; }
-        .track-content {
-            background: white;
-            width: 90%;
-            max-width: 450px;
-            border-radius: 20px;
-            padding: 1.2rem;
-        }
-        .track-content h2 { text-align: center; margin-bottom: 1rem; color: #9B2C6B; }
-        .track-content input { width: 100%; padding: 0.6rem; border: 1px solid #ddd; border-radius: 10px; }
-        .track-content button { width: 100%; padding: 0.6rem; margin-top: 1rem; border-radius: 50px; border: none; cursor: pointer; }
-        .track-content button:first-of-type { background: #9B2C6B; color: white; }
-        .track-content button:last-of-type { background: #ccc; }
-
         .toast {
             position: fixed;
             bottom: 20px;
@@ -937,7 +587,6 @@
             .filter-bar { padding: 0 2rem; }
             .container { padding: 0 2rem; }
             .logo { font-size: 1.8rem; }
-            .slider { height: 200px; }
         }
     </style>
 </head>
@@ -951,41 +600,32 @@
     <div class="search-results" id="searchResults"></div>
 </div>
 
-<!-- نافذة الرسائل والإشعارات -->
-<div class="messages-modal" id="messagesModal">
-    <div class="messages-header">
-        <h3><i class="fas fa-bell"></i> الإشعارات والطلبات</h3>
-        <button class="close-messages" onclick="closeMessagesModal()"><i class="fas fa-times"></i></button>
-    </div>
-    <div id="messagesList"></div>
-</div>
-
 <!-- النوافذ -->
-<div class="modal" id="aboutModal">
-    <div class="modal-content">
-        <h2>من نحن</h2>
+<div class="modal" id="aboutModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:2000;">
+    <div style="background:white; width:90%; max-width:400px; border-radius:20px; padding:1.5rem; text-align:center;">
+        <h2 style="color:#9B2C6B;">من نحن</h2>
         <p>Zarias متجر مستحضرات التجميل، نقدم لكم أفضل المنتجات الأصلية بأعلى جودة.</p>
-        <button onclick="closeAbout()" style="background:#9B2C6B; color:white; border:none; padding:0.5rem; border-radius:50px; margin-top:1rem;">إغلاق</button>
+        <button onclick="closeAbout()" style="background:#9B2C6B; color:white; border:none; padding:0.5rem 1rem; border-radius:50px; margin-top:1rem;">إغلاق</button>
     </div>
 </div>
 
-<div class="modal" id="contactModal">
-    <div class="modal-content">
-        <h2>اتصل بنا</h2>
-        <input type="text" id="contactName" placeholder="الاسم">
-        <input type="email" id="contactEmail" placeholder="البريد الإلكتروني">
-        <textarea id="contactMessage" rows="3" placeholder="رسالتك"></textarea>
+<div class="modal" id="contactModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:2000;">
+    <div style="background:white; width:90%; max-width:400px; border-radius:20px; padding:1.5rem;">
+        <h2 style="color:#9B2C6B; text-align:center;">اتصل بنا</h2>
+        <input type="text" id="contactName" placeholder="الاسم" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+        <input type="email" id="contactEmail" placeholder="البريد الإلكتروني" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+        <textarea id="contactMessage" rows="3" placeholder="رسالتك" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;"></textarea>
         <button onclick="sendMessage()" style="background:#9B2C6B; color:white; border:none; padding:0.5rem; width:100%; border-radius:50px;">إرسال</button>
         <button onclick="closeContact()" style="background:#ccc; border:none; padding:0.5rem; width:100%; border-radius:50px; margin-top:0.5rem;">إلغاء</button>
     </div>
 </div>
 
-<div class="modal" id="loginModal">
-    <div class="modal-content">
-        <h2>تسجيل الدخول</h2>
-        <input type="text" id="loginName" placeholder="الاسم">
-        <input type="tel" id="loginPhone" placeholder="رقم الهاتف">
-        <input type="text" id="loginAddress" placeholder="العنوان">
+<div class="modal" id="loginModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:2000;">
+    <div style="background:white; width:90%; max-width:400px; border-radius:20px; padding:1.5rem;">
+        <h2 style="color:#9B2C6B; text-align:center;">تسجيل الدخول</h2>
+        <input type="text" id="loginName" placeholder="الاسم" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+        <input type="tel" id="loginPhone" placeholder="رقم الهاتف" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+        <input type="text" id="loginAddress" placeholder="العنوان" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
         <button onclick="saveUserAndProceed()" style="background:#9B2C6B; color:white; border:none; padding:0.5rem; width:100%; border-radius:50px;">تسجيل الدخول</button>
         <button onclick="skipLogin()" style="background:#ccc; border:none; padding:0.5rem; width:100%; border-radius:50px; margin-top:0.5rem;">تخطي</button>
     </div>
@@ -1006,11 +646,6 @@
             <button class="cancel-card" onclick="closeCardModal()">إلغاء</button>
         </div>
     </div>
-</div>
-
-<!-- نافذة تفاصيل المنتج -->
-<div class="product-detail-modal" id="productDetailModal">
-    <div class="detail-content" id="detailContent"></div>
 </div>
 
 <!-- نافذة تعديل المنتج -->
@@ -1042,68 +677,6 @@
     </div>
 </div>
 
-<!-- لوحة التحكم -->
-<div class="admin-panel" id="adminPanel">
-    <div class="admin-content">
-        <div class="admin-header">
-            <h2>لوحة التحكم - Zarias</h2>
-            <button class="close-admin" onclick="closeAdminPanel()"><i class="fas fa-times"></i></button>
-        </div>
-        <div class="admin-stats" id="adminStats"></div>
-        <h3 style="margin:1rem 0 0.5rem;">📦 الطلبات</h3>
-        <div style="overflow-x: auto;">
-            <table class="admin-table" id="ordersTable">
-                <thead><tr><th>رقم الطلب</th><th>العميل</th><th>الهاتف</th><th>المجموع</th><th>التوصيل</th><th>الإجمالي</th><th>الحالة</th><th>ملاحظات</th></tr></thead>
-                <tbody id="ordersTableBody"></tbody>
-            </table>
-        </div>
-        <h3 style="margin:1rem 0 0.5rem;">🛍️ المنتجات</h3>
-        <div style="overflow-x: auto;">
-            <table class="admin-table" id="productsTable">
-                <thead><tr><th>المنتج</th><th>السعر</th><th>التصنيف</th><th>إجراءات</th></tr></thead>
-                <tbody id="productsTableBody"></tbody>
-            </table>
-        </div>
-    </div>
-</div>
-
-<!-- نافذة تتبع الطلب -->
-<div class="track-modal" id="trackModal">
-    <div class="track-content">
-        <h2>تتبع الطلب</h2>
-        <input type="text" id="trackOrderNumber" placeholder="أدخل رقم الطلب">
-        <button onclick="trackOrder()">تتبع</button>
-        <div id="trackResult" style="margin-top: 1rem;"></div>
-        <button onclick="closeTrackModal()">إغلاق</button>
-    </div>
-</div>
-
-<!-- نافذة إضافة منتج -->
-<div class="modal" id="productModal">
-    <div class="modal-content" style="text-align:right;">
-        <h2>➕ إضافة منتج</h2>
-        <div id="imagePreview" onclick="document.getElementById('productImage').click()" class="image-preview">
-            <i class="fas fa-cloud-upload-alt"></i> اضغط لرفع صورة
-        </div>
-        <input type="file" id="productImage" accept="image/*" style="display:none;">
-        <input type="text" id="productName" placeholder="اسم المنتج">
-        <textarea id="productDesc" rows="2" placeholder="وصف المنتج"></textarea>
-        <input type="number" id="productPrice" placeholder="السعر الجديد">
-        <input type="number" id="productOldPrice" placeholder="السعر القديم">
-        <input type="number" id="productDiscount" placeholder="نسبة الخصم">
-        <select id="productCategory">
-            <option value="مكياج">مكياج</option>
-            <option value="عناية بالبشرة">عناية بالبشرة</option>
-            <option value="عناية بالشعر">عناية بالشعر</option>
-            <option value="عطور">عطور</option>
-        </select>
-        <input type="number" id="productRating" placeholder="التقييم" step="0.5">
-        <input type="text" id="productBadge" placeholder="شارة">
-        <button onclick="addProduct()" style="background:#9B2C6B; color:white; border:none; padding:0.6rem; width:100%; border-radius:50px; margin-top:0.5rem;">حفظ</button>
-        <button onclick="closeModal()" style="background:#ccc; border:none; padding:0.6rem; width:100%; border-radius:50px; margin-top:0.5rem;">إلغاء</button>
-    </div>
-</div>
-
 <!-- القائمة الجانبية -->
 <div class="sidebar" id="sidebar">
     <div class="sidebar-header">
@@ -1113,22 +686,22 @@
     </div>
     
     <div class="sidebar-categories">
-        <div class="sidebar-category active" data-category="all" onclick="selectCategory('all', this)">
+        <div class="sidebar-category active" onclick="selectCategory('all', this)">
             <i class="fas fa-home"></i><span>الرئيسية</span>
         </div>
-        <div class="sidebar-category" data-category="all" onclick="selectCategory('all', this)">
+        <div class="sidebar-category" onclick="selectCategory('all', this)">
             <i class="fas fa-grid"></i><span>الكل</span>
         </div>
-        <div class="sidebar-category" data-category="مكياج" onclick="selectCategory('مكياج', this)">
+        <div class="sidebar-category" onclick="selectCategory('مكياج', this)">
             <i class="fas fa-magic"></i><span>مكياج</span>
         </div>
-        <div class="sidebar-category" data-category="عناية بالبشرة" onclick="selectCategory('عناية بالبشرة', this)">
+        <div class="sidebar-category" onclick="selectCategory('عناية بالبشرة', this)">
             <i class="fas fa-spa"></i><span>عناية بالبشرة</span>
         </div>
-        <div class="sidebar-category" data-category="عناية بالشعر" onclick="selectCategory('عناية بالشعر', this)">
+        <div class="sidebar-category" onclick="selectCategory('عناية بالشعر', this)">
             <i class="fas fa-leaf"></i><span>عناية بالشعر</span>
         </div>
-        <div class="sidebar-category" data-category="عطور" onclick="selectCategory('عطور', this)">
+        <div class="sidebar-category" onclick="selectCategory('عطور', this)">
             <i class="fas fa-perfume"></i><span>عطور</span>
         </div>
     </div>
@@ -1143,8 +716,8 @@
     </div>
     
     <div class="filter-section" style="border-top:1px solid #eee;">
-        <div class="filter-option" onclick="openAdminPanel()"><i class="fas fa-chart-line"></i> لوحة التحكم</div>
-        <div class="filter-option" onclick="openTrackModal()"><i class="fas fa-truck"></i> تتبع طلبك</div>
+        <div class="filter-option" onclick="showAbout()"><i class="fas fa-info-circle"></i> من نحن</div>
+        <div class="filter-option" onclick="showContact()"><i class="fas fa-envelope"></i> اتصل بنا</div>
     </div>
     
     <div class="social-links">
@@ -1152,11 +725,6 @@
         <a href="https://instagram.com" target="_blank" class="social-link instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://wa.me/20123456789" target="_blank" class="social-link whatsapp"><i class="fab fa-whatsapp"></i></a>
         <a href="https://tiktok.com" target="_blank" class="social-link tiktok"><i class="fab fa-tiktok"></i></a>
-    </div>
-    
-    <div class="filter-section" style="border-top:1px solid #eee;">
-        <div class="filter-option" onclick="showAbout()"><i class="fas fa-info-circle"></i> من نحن</div>
-        <div class="filter-option" onclick="showContact()"><i class="fas fa-envelope"></i> اتصل بنا</div>
     </div>
 </div>
 
@@ -1170,37 +738,9 @@
         </div>
         <div class="logo">ZARIAS</div>
         <div class="right-icons">
-            <button class="icon-btn" id="messagesBtn"><i class="fas fa-bell"></i><span class="badge" id="messagesCount">0</span></button>
             <div class="icon-btn" id="favoritesBtn"><i class="far fa-heart"></i><span class="badge" id="favoriteCount">0</span></div>
             <div class="icon-btn" id="cartBtn"><i class="fas fa-shopping-bag"></i><span class="badge" id="cartCount">0</span></div>
         </div>
-    </div>
-</div>
-
-<!-- ========== السلايدر (تحت الهيدر مباشرة) ========== -->
-<div class="slider-container">
-    <div class="slider">
-        <div class="slides" id="slides">
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=300&fit=crop" alt="عطور عالمية">
-                <div class="discount-badge-slider">🎁 عرض خاص</div>
-                <div class="slide-content">
-                    <h3>🌟 عطور عالمية متجمعة 🌟</h3>
-                    <p>اشتري واحدة واحصل على الثانية مجاناً! +1 مجاناً</p>
-                </div>
-            </div>
-            <div class="slide">
-                <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=800&h=300&fit=crop" alt="خصم فيسكا">
-                <div class="discount-badge-slider">🔥 خصم حصري</div>
-                <div class="slide-content">
-                    <h3>💄 منتجات فيسكا 💄</h3>
-                    <p>خصم 10% على جميع منتجات فيسكا لفترة محدودة!</p>
-                </div>
-            </div>
-        </div>
-        <button class="slider-btn prev" onclick="prevSlide()">❮</button>
-        <button class="slider-btn next" onclick="nextSlide()">❯</button>
-        <div class="slider-dots" id="sliderDots"></div>
     </div>
 </div>
 
@@ -1230,11 +770,13 @@
     <div id="cartItemsList"></div>
     <div style="padding:0.8rem; border-top:1px solid #eee;">
         <div id="cartSubtotal" style="font-size:0.85rem;">المجموع: 0 جنيه</div>
-        <div class="total-details" id="totalDetails">
+        <div class="total-details">
             <div class="total-row"><span>المجموع:</span><span id="displaySubtotal">0 ج</span></div>
             <div class="total-row"><span>سعر التوصيل:</span><span>45 ج</span></div>
             <div class="total-row final"><span>الإجمالي النهائي:</span><span id="displayTotal">0 ج</span></div>
         </div>
+        
+        <!-- طرق الدفع الأربعة -->
         <div class="payment-options">
             <div class="payment-title">💳 طريقة الدفع</div>
             <label class="payment-option"><input type="radio" name="paymentMethod" value="cash" checked> 💵 نقدي عند الاستلام</label>
@@ -1242,70 +784,41 @@
             <label class="payment-option"><input type="radio" name="paymentMethod" value="instapay"> <span class="instapay-logo"><i class="fas fa-bolt"></i> InstaPay</span></label>
             <label class="payment-option"><input type="radio" name="paymentMethod" value="vodafone"> <span class="vodafone-logo"><i class="fas fa-mobile-alt"></i> فودافون كاش</span></label>
         </div>
+        
         <div style="margin:0.5rem 0;">
             <textarea id="orderNotes" rows="2" placeholder="ملاحظات إضافية (اختياري)" style="width:100%; padding:0.5rem; border-radius:10px; border:1px solid #ddd;"></textarea>
         </div>
+        
         <button class="add-to-cart" onclick="proceedToPayment()" style="margin-top:0.8rem; width:100%;">💳 إتمام الشراء</button>
     </div>
 </div>
 
+<!-- نافذة إضافة منتج -->
+<div class="modal" id="productModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.5); justify-content:center; align-items:center; z-index:2000;">
+    <div style="background:white; width:90%; max-width:450px; border-radius:20px; padding:1.5rem;">
+        <h2 style="color:#9B2C6B;">➕ إضافة منتج</h2>
+        <div id="imagePreview" onclick="document.getElementById('productImage').click()" style="width:100%; height:100px; border:2px dashed #ddd; border-radius:10px; margin:0.5rem 0; display:flex; align-items:center; justify-content:center; cursor:pointer; background-size:cover; background-position:center;">
+            <i class="fas fa-cloud-upload-alt"></i> اضغط لرفع صورة
+        </div>
+        <input type="file" id="productImage" accept="image/*" style="display:none;">
+        <input type="text" id="productName" placeholder="اسم المنتج" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+        <textarea id="productDesc" rows="2" placeholder="وصف المنتج" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;"></textarea>
+        <input type="number" id="productPrice" placeholder="السعر" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+        <select id="productCategory" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+            <option value="مكياج">مكياج</option>
+            <option value="عناية بالبشرة">عناية بالبشرة</option>
+            <option value="عناية بالشعر">عناية بالشعر</option>
+            <option value="عطور">عطور</option>
+        </select>
+        <input type="number" id="productRating" placeholder="التقييم (1-5)" step="0.5" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+        <input type="text" id="productBadge" placeholder="شارة" style="width:100%; padding:0.5rem; margin:0.5rem 0; border:1px solid #ddd; border-radius:10px;">
+        <button onclick="addProduct()" style="background:#9B2C6B; color:white; border:none; padding:0.5rem; width:100%; border-radius:50px; margin-top:0.5rem;">حفظ</button>
+        <button onclick="closeModal()" style="background:#ccc; border:none; padding:0.5rem; width:100%; border-radius:50px; margin-top:0.5rem;">إلغاء</button>
+    </div>
+</div>
+
 <script>
-    // ========== سلايدر الإعلانات ==========
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.slide');
-    const totalSlides = slides.length;
-    let slideInterval;
-
-    function updateSlider() {
-        const slidesContainer = document.getElementById('slides');
-        if (slidesContainer) {
-            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-        }
-        updateDots();
-    }
-
-    function updateDots() {
-        const dotsContainer = document.getElementById('sliderDots');
-        if (dotsContainer) {
-            dotsContainer.innerHTML = '';
-            for (let i = 0; i < totalSlides; i++) {
-                const dot = document.createElement('div');
-                dot.classList.add('dot');
-                if (i === currentSlide) dot.classList.add('active');
-                dot.onclick = () => goToSlide(i);
-                dotsContainer.appendChild(dot);
-            }
-        }
-    }
-
-    function nextSlide() {
-        currentSlide = (currentSlide + 1) % totalSlides;
-        updateSlider();
-        resetInterval();
-    }
-
-    function prevSlide() {
-        currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-        updateSlider();
-        resetInterval();
-    }
-
-    function goToSlide(index) {
-        currentSlide = index;
-        updateSlider();
-        resetInterval();
-    }
-
-    function startSlider() {
-        slideInterval = setInterval(nextSlide, 5000);
-    }
-
-    function resetInterval() {
-        clearInterval(slideInterval);
-        startSlider();
-    }
-
-    // ========== باقي الكود (كما هو) ==========
+    // ========== بيانات المنتجات ==========
     let products = [
         { id: 1, name: "أحمر شفاه وردي", desc: "لون ثابت يدوم طويلاً", price: 89, oldPrice: 150, discount: 40, category: "مكياج", rating: 4.5, sales: 120, image: "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=300&h=200&fit=crop", badge: "خصم 40%" },
         { id: 2, name: "سيروم فيتامين C", desc: "مشرق للبشرة", price: 159, oldPrice: 220, discount: 28, category: "عناية بالبشرة", rating: 5, sales: 85, image: "https://images.unsplash.com/photo-1570194065650-d99fb4b8ccb0?w=300&h=200&fit=crop", badge: "خصم 28%" },
@@ -1315,14 +828,12 @@
     
     let cart = [];
     let favorites = [];
-    let orders = JSON.parse(localStorage.getItem('zarias_orders')) || [];
-    let messages = JSON.parse(localStorage.getItem('zarias_messages')) || [];
     let currentCategory = "all";
     let searchQuery = "";
     let currentFilter = "default";
     let currentUser = JSON.parse(localStorage.getItem('zarias_user'));
     let pendingAction = null;
-    let pendingNotes = "";
+    let pendingProduct = null;
     let selectedFile = null;
     let editSelectedFile = null;
     
@@ -1331,6 +842,7 @@
     const INSTAPAY_EMAIL = "noor.sis@instapay";
     const VODAFONE_URL = "http://vf.eg/vfcash?id=mt&qrId=0IQH8o";
     
+    // ========== عرض النجوم ==========
     function renderStars(rating) {
         let stars = '';
         for (let i = 1; i <= 5; i++) {
@@ -1341,6 +853,7 @@
         return stars;
     }
     
+    // ========== تحديث إجمالي السلة ==========
     function updateCartTotal() {
         const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
         const total = subtotal + DELIVERY_FEE;
@@ -1349,89 +862,7 @@
         return { subtotal, deliveryFee: DELIVERY_FEE, total };
     }
     
-    function updateMessagesCount() {
-        const unreadCount = messages.filter(m => !m.read).length;
-        document.getElementById('messagesCount').innerText = unreadCount;
-    }
-    
-    function addMessage(order) {
-        const newMessage = {
-            id: Date.now(),
-            orderId: order.id,
-            orderNumber: order.orderNumber,
-            customerName: order.customer.name,
-            customerPhone: order.customer.phone,
-            subtotal: order.subtotal,
-            deliveryFee: order.deliveryFee,
-            total: order.total,
-            status: order.status,
-            notes: order.notes || '',
-            date: new Date().toISOString(),
-            read: false
-        };
-        messages.unshift(newMessage);
-        localStorage.setItem('zarias_messages', JSON.stringify(messages));
-        updateMessagesCount();
-        renderMessages();
-    }
-    
-    function renderMessages() {
-        const container = document.getElementById('messagesList');
-        if (messages.length === 0) {
-            container.innerHTML = '<div style="text-align:center; padding:2rem;">📭 لا توجد رسائل جديدة</div>';
-            return;
-        }
-        container.innerHTML = messages.map(msg => `
-            <div class="message-item ${!msg.read ? 'unread' : ''}">
-                <div class="message-header">
-                    <span class="message-order-number">📦 طلب رقم: ${msg.orderNumber}</span>
-                    <span class="message-date">${new Date(msg.date).toLocaleString('ar-EG')}</span>
-                </div>
-                <div class="message-customer"><i class="fas fa-user"></i> ${msg.customerName}</div>
-                <div class="message-customer"><i class="fas fa-phone"></i> ${msg.customerPhone}</div>
-                <div class="message-customer"><i class="fas fa-money-bill"></i> الإجمالي: ${msg.total} جنيه</div>
-                ${msg.notes ? `<div class="message-customer"><i class="fas fa-sticky-note"></i> ملاحظة: ${msg.notes}</div>` : ''}
-                <div><span class="message-status status-${msg.status}">${msg.status === 'pending' ? 'قيد المعالجة' : msg.status === 'shipped' ? 'تم الشحن' : 'تم التسليم'}</span></div>
-                <div class="message-actions">
-                    <button class="btn-view" onclick="viewOrderDetails('${msg.orderNumber}')">عرض التفاصيل</button>
-                    <button class="btn-update" onclick="updateOrderStatusFromMessage('${msg.orderNumber}')">تحديث الحالة</button>
-                </div>
-            </div>
-        `).join('');
-    }
-    
-    function openMessagesModal() {
-        renderMessages();
-        document.getElementById('messagesModal').classList.add('active');
-        messages.forEach(msg => msg.read = true);
-        localStorage.setItem('zarias_messages', JSON.stringify(messages));
-        updateMessagesCount();
-    }
-    
-    function closeMessagesModal() { document.getElementById('messagesModal').classList.remove('active'); }
-    
-    function viewOrderDetails(orderNumber) {
-        closeMessagesModal();
-        openAdminPanel();
-    }
-    
-    function updateOrderStatusFromMessage(orderNumber) {
-        const newStatus = prompt('تغيير حالة الطلب:\n1 - قيد المعالجة\n2 - تم الشحن\n3 - تم التسليم', '1');
-        let status = 'pending';
-        if (newStatus === '2') status = 'shipped';
-        else if (newStatus === '3') status = 'delivered';
-        const order = orders.find(o => o.orderNumber === orderNumber);
-        if (order) {
-            order.status = status;
-            localStorage.setItem('zarias_orders', JSON.stringify(orders));
-            const msg = messages.find(m => m.orderNumber === orderNumber);
-            if (msg) msg.status = status;
-            localStorage.setItem('zarias_messages', JSON.stringify(messages));
-            renderMessages();
-            showToast(`✅ تم تحديث حالة الطلب`);
-        }
-    }
-    
+    // ========== البحث ==========
     function handleSearch() {
         searchQuery = document.getElementById('searchInput').value;
         const resultsContainer = document.getElementById('searchResults');
@@ -1449,6 +880,7 @@
         renderProducts();
     }
     
+    // ========== الفلاتر ==========
     function applyFilter() {
         let filtered = [...products];
         if (currentCategory !== "all") filtered = filtered.filter(p => p.category === currentCategory);
@@ -1467,6 +899,7 @@
     function setFilter(filter) { currentFilter = filter; document.getElementById('filterSelect').value = filter; renderProducts(); closeSidebar(); }
     function applyFilterFromSelect() { currentFilter = document.getElementById('filterSelect').value; renderProducts(); }
     
+    // ========== عرض المنتجات ==========
     function renderProducts() {
         const grid = document.getElementById('productsGrid');
         const filtered = applyFilter();
@@ -1474,11 +907,11 @@
         grid.innerHTML = filtered.map(p => {
             const hasDiscount = p.oldPrice && p.oldPrice > p.price;
             return `
-            <div class="product-card" onclick="showProductDetail(${p.id})">
-                <div class="favorite-icon ${favorites.some(f => f.id === p.id) ? 'active' : ''}" onclick="event.stopPropagation(); toggleFavorite(${p.id})"><i class="fas fa-heart"></i></div>
+            <div class="product-card">
+                <div class="favorite-icon ${favorites.some(f => f.id === p.id) ? 'active' : ''}" onclick="toggleFavorite(${p.id})"><i class="fas fa-heart"></i></div>
                 <div class="product-actions">
-                    <button class="edit-product-btn" onclick="event.stopPropagation(); openEditModal(${p.id})"><i class="fas fa-edit"></i></button>
-                    <button class="delete-product-btn" onclick="event.stopPropagation(); deleteProduct(${p.id})"><i class="fas fa-trash"></i></button>
+                    <button class="edit-product-btn" onclick="openEditModal(${p.id})"><i class="fas fa-edit"></i></button>
+                    <button class="delete-product-btn" onclick="deleteProduct(${p.id})"><i class="fas fa-trash"></i></button>
                 </div>
                 <img class="product-img" src="${p.image}" alt="${p.name}">
                 <div class="product-info">
@@ -1490,36 +923,13 @@
                         <span class="new-price">${p.price} ج</span>
                         ${hasDiscount ? `<span class="discount-badge">-${p.discount}%</span>` : ''}
                     </div>
-                    <button class="add-to-cart" onclick="event.stopPropagation(); addToCart(${p.id})">🛒 أضف للسلة</button>
+                    <button class="add-to-cart" onclick="addToCart(${p.id})">🛒 أضف للسلة</button>
                 </div>
             </div>
         `}).join('');
     }
     
-    function showProductDetail(productId) {
-        const product = products.find(p => p.id === productId);
-        if (!product) return;
-        const hasDiscount = product.oldPrice && product.oldPrice > product.price;
-        const related = products.filter(p => p.category === product.category && p.id !== product.id).slice(0, 4);
-        document.getElementById('detailContent').innerHTML = `
-            <div class="detail-header"><img class="detail-img" src="${product.image}"><button class="close-detail" onclick="closeProductDetail()" style="position:absolute; top:10px; right:10px; background:rgba(0,0,0,0.5); color:white; border:none; width:35px; height:35px; border-radius:50%;"><i class="fas fa-times"></i></button></div>
-            <div class="detail-body">
-                <h2 class="detail-title">${product.name}</h2>
-                <div class="product-rating"><div class="stars">${renderStars(product.rating)}</div></div>
-                <div class="price-container" style="margin:0.5rem 0;">
-                    ${hasDiscount ? `<span class="old-price" style="font-size:1rem;">${product.oldPrice} ج</span>` : ''}
-                    <span class="new-price" style="font-size:1.5rem;">${product.price} ج</span>
-                    ${hasDiscount ? `<span class="discount-badge" style="font-size:0.8rem;">-${product.discount}%</span>` : ''}
-                </div>
-                <p class="detail-desc">${product.desc}</p>
-                <button class="add-to-cart" onclick="addToCart(${product.id}); closeProductDetail();">🛒 أضف للسلة</button>
-                ${related.length > 0 ? `<div style="margin-top:1rem;"><strong>🛍️ منتجات ذات صلة</strong><div style="display:grid; grid-template-columns:repeat(2,1fr); gap:0.5rem; margin-top:0.5rem;">${related.map(p => `<div onclick="showProductDetail(${p.id})" style="background:#f9f9f9; border-radius:12px; padding:0.5rem; text-align:center;"><img src="${p.image}" style="width:100%; height:80px; object-fit:cover; border-radius:8px;"><div style="font-size:0.8rem;">${p.name}</div><div style="color:#9B2C6B;">${p.price} ج</div></div>`).join('')}</div></div>` : ''}
-            </div>
-        `;
-        document.getElementById('productDetailModal').classList.add('active');
-    }
-    function closeProductDetail() { document.getElementById('productDetailModal').classList.remove('active'); }
-    
+    // ========== تعديل المنتج ==========
     function openEditModal(productId) {
         const product = products.find(p => p.id === productId);
         if (!product) return;
@@ -1532,6 +942,7 @@
         document.getElementById('editProductRating').value = product.rating;
         document.getElementById('editProductBadge').value = product.badge || '';
         document.getElementById('editProductId').value = productId;
+        
         const preview = document.getElementById('editImagePreview');
         if (product.image) {
             preview.style.backgroundImage = `url(${product.image})`;
@@ -1541,7 +952,10 @@
         document.getElementById('editModal').classList.add('active');
     }
     
-    function closeEditModal() { document.getElementById('editModal').classList.remove('active'); editSelectedFile = null; }
+    function closeEditModal() { 
+        document.getElementById('editModal').classList.remove('active'); 
+        editSelectedFile = null;
+    }
     
     document.getElementById('editProductImage').addEventListener('change', function(e) {
         const file = e.target.files[0];
@@ -1562,21 +976,18 @@
         const productId = parseInt(document.getElementById('editProductId').value);
         const index = products.findIndex(p => p.id === productId);
         if (index !== -1) {
-            const newPrice = parseFloat(document.getElementById('editProductPrice').value);
-            const oldPrice = parseFloat(document.getElementById('editOldPrice').value);
-            const discount = parseInt(document.getElementById('editDiscount').value);
             let updatedImage = products[index].image;
             if (editSelectedFile) updatedImage = URL.createObjectURL(editSelectedFile);
             products[index] = {
                 ...products[index],
                 name: document.getElementById('editProductName').value,
                 desc: document.getElementById('editProductDesc').value,
-                price: newPrice,
-                oldPrice: oldPrice || null,
-                discount: discount || 0,
+                price: parseFloat(document.getElementById('editProductPrice').value),
+                oldPrice: parseFloat(document.getElementById('editOldPrice').value) || null,
+                discount: parseInt(document.getElementById('editDiscount').value) || 0,
                 category: document.getElementById('editProductCategory').value,
                 rating: parseFloat(document.getElementById('editProductRating').value),
-                badge: document.getElementById('editProductBadge').value || (discount > 0 ? `خصم ${discount}%` : ''),
+                badge: document.getElementById('editProductBadge').value,
                 image: updatedImage
             };
             localStorage.setItem('zarias_products', JSON.stringify(products));
@@ -1595,6 +1006,188 @@
         }
     }
     
+    // ========== سلة التسوق ==========
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        const existing = cart.find(item => item.id === productId);
+        if (existing) existing.quantity++; else cart.push({ ...product, quantity: 1 });
+        saveCart(); showToast(`✅ تم إضافة ${product.name}`);
+    }
+    
+    function saveCart() { 
+        localStorage.setItem('zarias_cart', JSON.stringify(cart)); 
+        updateCartUI(); 
+        updateCartTotal();
+    }
+    
+    function updateCartUI() {
+        const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
+        document.getElementById('cartCount').innerText = totalItems;
+        const container = document.getElementById('cartItemsList');
+        if (cart.length === 0) container.innerHTML = '<div style="text-align:center; padding:2rem;">🛍️ السلة فارغة</div>';
+        else container.innerHTML = cart.map(item => `
+            <div class="cart-item">
+                <img src="${item.image}">
+                <div class="cart-item-info">
+                    <h4>${item.name}</h4>
+                    <div>${item.price} ج × ${item.quantity}</div>
+                    <div><button onclick="updateQuantity(${item.id}, -1)">-</button><span>${item.quantity}</span><button onclick="updateQuantity(${item.id}, 1)">+</button><button onclick="removeFromCart(${item.id})">حذف</button></div>
+                </div>
+            </div>
+        `).join('');
+    }
+    
+    function updateQuantity(id, delta) { 
+        const item = cart.find(i => i.id === id); 
+        if (item) { 
+            item.quantity += delta; 
+            if (item.quantity <= 0) cart = cart.filter(i => i.id !== id); 
+            saveCart(); 
+        } 
+    }
+    
+    function removeFromCart(id) { 
+        cart = cart.filter(i => i.id !== id); 
+        saveCart(); 
+        showToast('🗑️ تم الإزالة'); 
+    }
+    
+    // ========== المفضلة ==========
+    function toggleFavorite(productId) {
+        const product = products.find(p => p.id === productId);
+        const index = favorites.findIndex(f => f.id === productId);
+        if (index === -1) { favorites.push(product); showToast(`❤️ تم إضافة ${product.name} إلى المفضلة`); }
+        else { favorites.splice(index, 1); showToast(`💔 تم إزالة ${product.name} من المفضلة`); }
+        localStorage.setItem('zarias_favorites', JSON.stringify(favorites));
+        document.getElementById('favoriteCount').innerText = favorites.length;
+        renderProducts();
+    }
+    
+    // ========== الدفع (4 طرق) ==========
+    function proceedToPayment() {
+        if (cart.length === 0) { showToast('⚠️ السلة فارغة'); return; }
+        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+        const notes = document.getElementById('orderNotes').value;
+        
+        if (!currentUser) { 
+            pendingAction = 'checkout';
+            document.getElementById('loginModal').style.display = 'flex';
+            return; 
+        }
+        
+        if (paymentMethod === 'card') {
+            document.getElementById('cardModal').classList.add('active');
+        } else if (paymentMethod === 'instapay') {
+            const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+            const total = subtotal + DELIVERY_FEE;
+            if (confirm(`ستنتقل إلى تطبيق InstaPay لتحويل مبلغ ${total} جنيه إلى noor.sis@instapay\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
+                window.open(INSTAPAY_URL, '_blank');
+                completeOrder('instapay', notes);
+            }
+        } else if (paymentMethod === 'vodafone') {
+            const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+            const total = subtotal + DELIVERY_FEE;
+            if (confirm(`ستنتقل إلى رابط فودافون كاش لتحويل مبلغ ${total} جنيه\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
+                window.open(VODAFONE_URL, '_blank');
+                completeOrder('vodafone', notes);
+            }
+        } else {
+            completeOrder('cash', notes);
+        }
+    }
+    
+    function openCardModal() { document.getElementById('cardModal').classList.add('active'); }
+    function closeCardModal() { document.getElementById('cardModal').classList.remove('active'); }
+    
+    function processCardPayment() {
+        const cardNumber = document.getElementById('cardNumber').value.trim();
+        const cardName = document.getElementById('cardName').value.trim();
+        const cardExpiry = document.getElementById('cardExpiry').value.trim();
+        const cardCvv = document.getElementById('cardCvv').value.trim();
+        
+        if (!cardNumber || !cardName || !cardExpiry || !cardCvv) {
+            showToast('⚠️ يرجى إدخال جميع بيانات البطاقة');
+            return;
+        }
+        if (!/^\d{16}$/.test(cardNumber.replace(/\s/g, ''))) {
+            showToast('⚠️ رقم البطاقة يجب أن يكون 16 رقماً');
+            return;
+        }
+        if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) {
+            showToast('⚠️ صيغة التاريخ غير صحيحة (MM/YY)');
+            return;
+        }
+        
+        closeCardModal();
+        completeOrder('card', pendingNotes);
+    }
+    
+    function completeOrder(paymentType, notes) {
+        let paymentText = '';
+        if (paymentType === 'cash') paymentText = 'نقدي عند الاستلام';
+        else if (paymentType === 'card') paymentText = 'بطاقة ائتمان';
+        else if (paymentType === 'instapay') paymentText = 'InstaPay (تحويل فوري)';
+        else if (paymentType === 'vodafone') paymentText = 'فودافون كاش';
+        
+        const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+        const total = subtotal + DELIVERY_FEE;
+        const orderNumber = 'ZRS-' + Date.now().toString().slice(-8);
+        
+        let message = `✅ تم استلام طلبك!\n📦 رقم: ${orderNumber}\n💰 المجموع: ${subtotal} جنيه\n🚚 سعر التوصيل: ${DELIVERY_FEE} جنيه\n💵 الإجمالي النهائي: ${total} جنيه\n💳 طريقة الدفع: ${paymentText}`;
+        if (paymentType === 'instapay') {
+            message += `\n📱 بريد InstaPay: ${INSTAPAY_EMAIL}\n🔗 رابط الدفع: ${INSTAPAY_URL}`;
+        }
+        if (paymentType === 'vodafone') {
+            message += `\n📱 رابط فودافون كاش: ${VODAFONE_URL}`;
+        }
+        if (notes) message += `\n📝 ملاحظاتك: ${notes}`;
+        alert(message);
+        
+        cart = []; saveCart(); closeCart();
+        document.getElementById('orderNotes').value = '';
+    }
+    
+    // ========== إدارة المستخدم ==========
+    function saveUserAndProceed() {
+        const name = document.getElementById('loginName').value;
+        const phone = document.getElementById('loginPhone').value;
+        const address = document.getElementById('loginAddress').value;
+        if (!name || !phone) { alert('الاسم ورقم الهاتف مطلوبان'); return; }
+        currentUser = { name, phone, address };
+        localStorage.setItem('zarias_user', JSON.stringify(currentUser));
+        document.getElementById('loginModal').style.display = 'none';
+        if (pendingAction === 'checkout') {
+            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+            if (paymentMethod === 'card') {
+                document.getElementById('cardModal').classList.add('active');
+            } else if (paymentMethod === 'instapay') {
+                const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+                const total = subtotal + DELIVERY_FEE;
+                if (confirm(`ستنتقل إلى تطبيق InstaPay لتحويل مبلغ ${total} جنيه إلى noor.sis@instapay\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
+                    window.open(INSTAPAY_URL, '_blank');
+                    completeOrder('instapay', document.getElementById('orderNotes').value);
+                }
+            } else if (paymentMethod === 'vodafone') {
+                const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
+                const total = subtotal + DELIVERY_FEE;
+                if (confirm(`ستنتقل إلى رابط فودافون كاش لتحويل مبلغ ${total} جنيه\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
+                    window.open(VODAFONE_URL, '_blank');
+                    completeOrder('vodafone', document.getElementById('orderNotes').value);
+                }
+            } else {
+                completeOrder('cash', document.getElementById('orderNotes').value);
+            }
+        }
+        pendingAction = null;
+        showToast(`مرحباً ${name}!`);
+    }
+    
+    function skipLogin() { 
+        document.getElementById('loginModal').style.display = 'none'; 
+        pendingAction = null;
+    }
+    
+    // ========== إضافة منتج ==========
     document.getElementById('productImage').addEventListener('change', function(e) {
         const file = e.target.files[0];
         if (file) {
@@ -1610,27 +1203,24 @@
         }
     });
     
-    function openAddProductModal() { document.getElementById('productModal').classList.add('active'); }
-    function closeModal() { document.getElementById('productModal').classList.remove('active'); }
+    function openAddProductModal() { document.getElementById('productModal').style.display = 'flex'; }
+    function closeModal() { document.getElementById('productModal').style.display = 'none'; }
     
     function addProduct() {
         let imageUrl = "https://images.unsplash.com/photo-1586495777744-4413f21062fa?w=300&h=200&fit=crop";
         if (selectedFile) imageUrl = URL.createObjectURL(selectedFile);
-        const newPrice = parseFloat(document.getElementById('productPrice').value);
-        const oldPrice = parseFloat(document.getElementById('productOldPrice').value);
-        const discount = parseInt(document.getElementById('productDiscount').value);
         const newProduct = {
             id: Date.now(),
             name: document.getElementById('productName').value,
             desc: document.getElementById('productDesc').value,
-            price: newPrice,
-            oldPrice: oldPrice || null,
-            discount: discount || 0,
+            price: parseInt(document.getElementById('productPrice').value),
+            oldPrice: null,
+            discount: 0,
             category: document.getElementById('productCategory').value,
             rating: parseFloat(document.getElementById('productRating').value) || 4,
             sales: 0,
             image: imageUrl,
-            badge: document.getElementById('productBadge').value || (discount > 0 ? `خصم ${discount}%` : '')
+            badge: document.getElementById('productBadge').value || ''
         };
         products.push(newProduct);
         localStorage.setItem('zarias_products', JSON.stringify(products));
@@ -1643,293 +1233,17 @@
         document.getElementById('productName').value = '';
         document.getElementById('productDesc').value = '';
         document.getElementById('productPrice').value = '';
-        document.getElementById('productOldPrice').value = '';
-        document.getElementById('productDiscount').value = '';
         document.getElementById('productBadge').value = '';
     }
     
-    function toggleFavorite(productId) {
-        const product = products.find(p => p.id === productId);
-        const index = favorites.findIndex(f => f.id === productId);
-        if (index === -1) { favorites.push(product); showToast(`❤️ تم إضافة ${product.name} إلى المفضلة`); }
-        else { favorites.splice(index, 1); showToast(`💔 تم إزالة ${product.name} من المفضلة`); }
-        localStorage.setItem('zarias_favorites', JSON.stringify(favorites));
-        document.getElementById('favoriteCount').innerText = favorites.length;
-        renderProducts();
-    }
-    
-    function addToCart(productId) {
-        const product = products.find(p => p.id === productId);
-        const existing = cart.find(item => item.id === productId);
-        if (existing) existing.quantity++; else cart.push({ ...product, quantity: 1 });
-        saveCart(); showToast(`✅ تم إضافة ${product.name}`);
-    }
-    
-    function saveCart() { 
-        localStorage.setItem('zarias_cart', JSON.stringify(cart)); 
-        updateCartUI();
-        updateCartTotal();
-    }
-    
-    function updateCartUI() {
-        const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
-        document.getElementById('cartCount').innerText = totalItems;
-        const container = document.getElementById('cartItemsList');
-        const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-        if (cart.length === 0) container.innerHTML = '<div style="text-align:center; padding:2rem;">🛍️ السلة فارغة</div>';
-        else container.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <img src="${item.image}">
-                <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <div>${item.price} ج × ${item.quantity}</div>
-                    <div><button onclick="updateQuantity(${item.id}, -1)">-</button><span>${item.quantity}</span><button onclick="updateQuantity(${item.id}, 1)">+</button><button onclick="removeFromCart(${item.id})">حذف</button></div>
-                </div>
-            </div>
-        `).join('');
-        document.getElementById('cartSubtotal').innerHTML = `المجموع: ${subtotal} جنيه`;
-        updateCartTotal();
-    }
-    
-    function updateQuantity(id, delta) { 
-        const item = cart.find(i => i.id === id); 
-        if (item) { 
-            item.quantity += delta; 
-            if (item.quantity <= 0) cart = cart.filter(i => i.id !== id); 
-            saveCart(); 
-        } 
-    }
-    
-    function removeFromCart(id) { 
-        cart = cart.filter(i => i.id !== id); 
-        saveCart(); 
-        showToast('🗑️ تم الإزالة'); 
-    }
-    
-    function proceedToPayment() {
-        if (cart.length === 0) { showToast('⚠️ السلة فارغة'); return; }
-        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-        const notes = document.getElementById('orderNotes').value;
-        
-        if (!currentUser) { 
-            pendingAction = 'checkout';
-            pendingNotes = notes;
-            document.getElementById('loginModal').classList.add('active'); 
-            return; 
-        }
-        
-        if (paymentMethod === 'card') {
-            document.getElementById('cardModal').classList.add('active');
-        } else if (paymentMethod === 'instapay') {
-            const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-            const total = subtotal + DELIVERY_FEE;
-            if (confirm(`ستنتقل إلى تطبيق InstaPay لتحويل مبلغ ${total} جنيه إلى noor.sis@instapay\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                window.open(INSTAPAY_URL, '_blank');
-                completeOrder('instapay', notes);
-            }
-        } else if (paymentMethod === 'vodafone') {
-            const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-            const total = subtotal + DELIVERY_FEE;
-            if (confirm(`ستنتقل إلى رابط فودافون كاش لتحويل مبلغ ${total} جنيه\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                window.open(VODAFONE_URL, '_blank');
-                completeOrder('vodafone', notes);
-            }
-        } else {
-            completeOrder('cash', notes);
-        }
-    }
-    
-    function openCardModal() { document.getElementById('cardModal').classList.add('active'); }
-    function closeCardModal() { document.getElementById('cardModal').classList.remove('active'); }
-    
-    function processCardPayment() {
-        const cardNumber = document.getElementById('cardNumber').value.trim();
-        const cardName = document.getElementById('cardName').value.trim();
-        const cardExpiry = document.getElementById('cardExpiry').value.trim();
-        const cardCvv = document.getElementById('cardCvv').value.trim();
-        
-        if (!cardNumber || !cardName || !cardExpiry || !cardCvv) {
-            showToast('⚠️ يرجى إدخال جميع بيانات البطاقة');
-            return;
-        }
-        if (!/^\d{16}$/.test(cardNumber.replace(/\s/g, ''))) {
-            showToast('⚠️ رقم البطاقة يجب أن يكون 16 رقماً');
-            return;
-        }
-        if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) {
-            showToast('⚠️ صيغة التاريخ غير صحيحة (MM/YY)');
-            return;
-        }
-        
-        closeCardModal();
-        completeOrder('card', pendingNotes);
-    }
-    
-    function completeOrder(paymentType, notes) {
-        let paymentText = '';
-        if (paymentType === 'cash') paymentText = 'نقدي عند الاستلام';
-        else if (paymentType === 'card') paymentText = 'بطاقة ائتمان';
-        else if (paymentType === 'instapay') paymentText = 'InstaPay (تحويل فوري)';
-        else if (paymentType === 'vodafone') paymentText = 'فودافون كاش';
-        
-        const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-        const total = subtotal + DELIVERY_FEE;
-        const orderNumber = 'ZRS-' + Date.now().toString().slice(-8);
-        const newOrder = { 
-            id: Date.now(), 
-            orderNumber, 
-            customer: { name: currentUser.name, phone: currentUser.phone, address: currentUser.address }, 
-            items: [...cart], 
-            subtotal: subtotal,
-            deliveryFee: DELIVERY_FEE,
-            total: total, 
-            paymentMethod: paymentText, 
-            notes: notes || '',
-            status: 'pending', 
-            createdAt: new Date().toISOString() 
-        };
-        orders.unshift(newOrder);
-        localStorage.setItem('zarias_orders', JSON.stringify(orders));
-        
-        addMessage(newOrder);
-        
-        let message = `✅ تم استلام طلبك!\n📦 رقم: ${orderNumber}\n💰 المجموع: ${subtotal} جنيه\n🚚 سعر التوصيل: ${DELIVERY_FEE} جنيه\n💵 الإجمالي النهائي: ${total} جنيه\n💳 طريقة الدفع: ${paymentText}`;
-        if (paymentType === 'instapay') {
-            message += `\n📱 بريد InstaPay: ${INSTAPAY_EMAIL}\n🔗 رابط الدفع: ${INSTAPAY_URL}`;
-        }
-        if (paymentType === 'vodafone') {
-            message += `\n📱 رابط فودافون كاش: ${VODAFONE_URL}`;
-        }
-        if (notes) message += `\n📝 ملاحظاتك: ${notes}`;
-        alert(message);
-        
-        cart = []; saveCart(); closeCart();
-        document.getElementById('orderNotes').value = '';
-    }
-    
-    function saveUserAndProceed() {
-        const name = document.getElementById('loginName').value, phone = document.getElementById('loginPhone').value, address = document.getElementById('loginAddress').value;
-        if (!name || !phone) { alert('الاسم ورقم الهاتف مطلوبان'); return; }
-        currentUser = { name, phone, address };
-        localStorage.setItem('zarias_user', JSON.stringify(currentUser));
-        document.getElementById('loginModal').classList.remove('active');
-        if (pendingAction === 'checkout') { 
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-            if (paymentMethod === 'card') {
-                document.getElementById('cardModal').classList.add('active');
-            } else if (paymentMethod === 'instapay') {
-                const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-                const total = subtotal + DELIVERY_FEE;
-                if (confirm(`ستنتقل إلى تطبيق InstaPay لتحويل مبلغ ${total} جنيه إلى noor.sis@instapay\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                    window.open(INSTAPAY_URL, '_blank');
-                    completeOrder('instapay', document.getElementById('orderNotes').value);
-                }
-            } else if (paymentMethod === 'vodafone') {
-                const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-                const total = subtotal + DELIVERY_FEE;
-                if (confirm(`ستنتقل إلى رابط فودافون كاش لتحويل مبلغ ${total} جنيه\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                    window.open(VODAFONE_URL, '_blank');
-                    completeOrder('vodafone', document.getElementById('orderNotes').value);
-                }
-            } else {
-                completeOrder('cash', document.getElementById('orderNotes').value);
-            }
-        }
-        pendingAction = null;
-        showToast(`مرحباً ${name}!`);
-    }
-    function skipLogin() { document.getElementById('loginModal').classList.remove('active'); pendingAction = null; }
-    
-    function openAdminPanel() {
-        updateAdminStats();
-        updateOrdersTable();
-        updateProductsTable();
-        document.getElementById('adminPanel').classList.add('active');
-        closeSidebar();
-    }
-    function closeAdminPanel() { document.getElementById('adminPanel').classList.remove('active'); }
-    function updateAdminStats() {
-        const totalOrders = orders.length;
-        const totalRevenue = orders.reduce((sum, o) => sum + o.total, 0);
-        const totalProducts = products.length;
-        const pendingOrders = orders.filter(o => o.status === 'pending').length;
-        document.getElementById('adminStats').innerHTML = `
-            <div class="stat-card"><div class="number">${totalOrders}</div><div class="label">الطلبات</div></div>
-            <div class="stat-card"><div class="number">${totalRevenue} ج</div><div class="label">المبيعات</div></div>
-            <div class="stat-card"><div class="number">${totalProducts}</div><div class="label">المنتجات</div></div>
-            <div class="stat-card"><div class="number">${pendingOrders}</div><div class="label">قيد المعالجة</div></div>
-        `;
-    }
-    function updateOrdersTable() {
-        const tbody = document.getElementById('ordersTableBody');
-        if (orders.length === 0) { tbody.innerHTML = '<td><td colspan="8">لا توجد طلبات</td></td>'; return; }
-        tbody.innerHTML = orders.map(order => `
-            <tr>
-                <td>${order.orderNumber}</td>
-                <td>${order.customer.name}</td>
-                <td>${order.customer.phone}</td>
-                <td>${order.subtotal} ج</td>
-                <td>${order.deliveryFee} ج</td>
-                <td>${order.total} ج</td>
-                <td>
-                    <select onchange="updateOrderStatus('${order.orderNumber}', this.value)">
-                        <option ${order.status === 'pending' ? 'selected' : ''} value="pending">قيد المعالجة</option>
-                        <option ${order.status === 'shipped' ? 'selected' : ''} value="shipped">تم الشحن</option>
-                        <option ${order.status === 'delivered' ? 'selected' : ''} value="delivered">تم التسليم</option>
-                    </select>
-                 </td>
-                <td>${order.notes || '-'}</td>
-            </table>
-        `).join('');
-    }
-    function updateOrderStatus(orderNumber, newStatus) {
-        const order = orders.find(o => o.orderNumber === orderNumber);
-        if (order) { 
-            order.status = newStatus; 
-            localStorage.setItem('zarias_orders', JSON.stringify(orders));
-            const msg = messages.find(m => m.orderNumber === orderNumber);
-            if (msg) msg.status = newStatus;
-            localStorage.setItem('zarias_messages', JSON.stringify(messages));
-            showToast('✅ تم تحديث حالة الطلب');
-        }
-    }
-    function updateProductsTable() {
-        const tbody = document.getElementById('productsTableBody');
-        tbody.innerHTML = products.map(p => `
-            <tr>
-                <td>${p.name}</td>
-                <td>${p.price} ج</td>
-                <td>${p.category}</td>
-                <td><button onclick="deleteProduct(${p.id})">حذف</button> <button onclick="openEditModal(${p.id})">تعديل</button></td>
-            </tr>
-        `).join('');
-    }
-    
-    function openTrackModal() { document.getElementById('trackModal').classList.add('active'); closeSidebar(); }
-    function closeTrackModal() { document.getElementById('trackModal').classList.remove('active'); }
-    function trackOrder() {
-        const orderNumber = document.getElementById('trackOrderNumber').value.trim();
-        if (!orderNumber) { showToast('⚠️ يرجى إدخال رقم الطلب'); return; }
-        const order = orders.find(o => o.orderNumber === orderNumber);
-        if (!order) { document.getElementById('trackResult').innerHTML = '<div style="color:#f44336;">❌ لا يوجد طلب بهذا الرقم</div>'; return; }
-        const statusText = { pending: 'قيد المعالجة', shipped: 'تم الشحن', delivered: 'تم التسليم' };
-        document.getElementById('trackResult').innerHTML = `
-            <div><strong>حالة الطلب:</strong> ${statusText[order.status]}</div>
-            <div><strong>التاريخ:</strong> ${new Date(order.createdAt).toLocaleDateString('ar-EG')}</div>
-            <div><strong>المجموع:</strong> ${order.subtotal} جنيه</div>
-            <div><strong>سعر التوصيل:</strong> ${order.deliveryFee} جنيه</div>
-            <div><strong>الإجمالي النهائي:</strong> ${order.total} جنيه</div>
-            <div><strong>طريقة الدفع:</strong> ${order.paymentMethod}</div>
-            ${order.notes ? `<div><strong>ملاحظاتك:</strong> ${order.notes}</div>` : ''}
-        `;
-    }
-    
-    function showAbout() { document.getElementById('aboutModal').classList.add('active'); closeSidebar(); }
-    function closeAbout() { document.getElementById('aboutModal').classList.remove('active'); }
-    function showContact() { document.getElementById('contactModal').classList.add('active'); closeSidebar(); }
-    function closeContact() { document.getElementById('contactModal').classList.remove('active'); }
+    // ========== من نحن واتصل بنا ==========
+    function showAbout() { document.getElementById('aboutModal').style.display = 'flex'; closeSidebar(); }
+    function closeAbout() { document.getElementById('aboutModal').style.display = 'none'; }
+    function showContact() { document.getElementById('contactModal').style.display = 'flex'; closeSidebar(); }
+    function closeContact() { document.getElementById('contactModal').style.display = 'none'; }
     function sendMessage() { showToast('✅ تم إرسال رسالتك!'); closeContact(); }
     
+    // ========== دوال عامة ==========
     function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.getElementById('overlay').classList.add('active'); }
     function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('active'); }
     function openCart() { document.getElementById('cartSidebar').classList.add('open'); updateCartTotal(); }
@@ -1938,11 +1252,12 @@
     function selectCategory(cat, el) { currentCategory = cat; document.querySelectorAll('.sidebar-category').forEach(c => c.classList.remove('active')); el.classList.add('active'); renderProducts(); closeSidebar(); }
     function toggleSearch() { document.getElementById('searchModal').classList.toggle('active'); if (document.getElementById('searchModal').classList.contains('active')) document.getElementById('searchInput').focus(); }
     
+    // الأحداث
     document.getElementById('searchInput').addEventListener('input', handleSearch);
     document.getElementById('searchBtn').onclick = toggleSearch;
-    document.getElementById('loginBtn').onclick = () => document.getElementById('loginModal').classList.add('active');
+    document.getElementById('loginBtn').onclick = () => document.getElementById('loginModal').style.display = 'flex';
     document.getElementById('cartBtn').onclick = openCart;
-    document.getElementById('messagesBtn').onclick = openMessagesModal;
+    document.getElementById('menuBtn').onclick = openSidebar;
     
     document.addEventListener('click', (e) => { 
         const modal = document.getElementById('searchModal'); 
@@ -1950,638 +1265,13 @@
         if (modal && btn && !modal.contains(e.target) && !btn.contains(e.target)) modal.classList.remove('active'); 
     });
     
-    const savedFav = localStorage.getItem('zarias_favorites');
+    // تحميل البيانات المحفوظة
     const savedProducts = localStorage.getItem('zarias_products');
     if (savedProducts) products = JSON.parse(savedProducts);
-    if (savedFav) favorites = JSON.parse(savedFav);
-    document.getElementById('favoriteCount').innerText = favorites.length;
-    updateMessagesCount();
-    renderProducts();
-    
-    startSlider();
-    updateSlider();
-</script>
-</body>
-</html>if (index === -1) { favorites.push(product); showToast(`❤️ تم إضافة ${product.name} إلى المفضلة`); }
-        else { favorites.splice(index, 1); showToast(`💔 تم إزالة ${product.name} من المفضلة`); }
-        localStorage.setItem('zarias_favorites', JSON.stringify(favorites));
-        document.getElementById('favoriteCount').innerText = favorites.length;
-        renderProducts();
-    }
-    
-    function addToCart(productId) {
-        const product = products.find(p => p.id === productId);
-        const existing = cart.find(item => item.id === productId);
-        if (existing) existing.quantity++; else cart.push({ ...product, quantity: 1 });
-        saveCart(); showToast(`✅ تم إضافة ${product.name}`);
-    }
-    
-    function saveCart() { 
-        localStorage.setItem('zarias_cart', JSON.stringify(cart)); 
-        updateCartUI();
-        updateCartTotal();
-    }
-    
-    function updateCartUI() {
-        const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
-        document.getElementById('cartCount').innerText = totalItems;
-        const container = document.getElementById('cartItemsList');
-        const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-        if (cart.length === 0) container.innerHTML = '<div style="text-align:center; padding:2rem;">🛍️ السلة فارغة</div>';
-        else container.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <img src="${item.image}">
-                <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <div>${item.price} ج × ${item.quantity}</div>
-                    <div><button onclick="updateQuantity(${item.id}, -1)">-</button><span>${item.quantity}</span><button onclick="updateQuantity(${item.id}, 1)">+</button><button onclick="removeFromCart(${item.id})">حذف</button></div>
-                </div>
-            </div>
-        `).join('');
-        document.getElementById('cartSubtotal').innerHTML = `المجموع: ${subtotal} جنيه`;
-        updateCartTotal();
-    }
-    
-    function updateQuantity(id, delta) { 
-        const item = cart.find(i => i.id === id); 
-        if (item) { 
-            item.quantity += delta; 
-            if (item.quantity <= 0) cart = cart.filter(i => i.id !== id); 
-            saveCart(); 
-        } 
-    }
-    
-    function removeFromCart(id) { 
-        cart = cart.filter(i => i.id !== id); 
-        saveCart(); 
-        showToast('🗑️ تم الإزالة'); 
-    }
-    
-    function proceedToPayment() {
-        if (cart.length === 0) { showToast('⚠️ السلة فارغة'); return; }
-        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-        const notes = document.getElementById('orderNotes').value;
-        
-        if (!currentUser) { 
-            pendingAction = 'checkout';
-            pendingNotes = notes;
-            document.getElementById('loginModal').classList.add('active'); 
-            return; 
-        }
-        
-        if (paymentMethod === 'card') {
-            document.getElementById('cardModal').classList.add('active');
-        } else if (paymentMethod === 'instapay') {
-            const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-            const total = subtotal + DELIVERY_FEE;
-            if (confirm(`ستنتقل إلى تطبيق InstaPay لتحويل مبلغ ${total} جنيه إلى noor.sis@instapay\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                window.open(INSTAPAY_URL, '_blank');
-                completeOrder('instapay', notes);
-            }
-        } else if (paymentMethod === 'vodafone') {
-            const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-            const total = subtotal + DELIVERY_FEE;
-            if (confirm(`ستنتقل إلى رابط فودافون كاش لتحويل مبلغ ${total} جنيه\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                window.open(VODAFONE_URL, '_blank');
-                completeOrder('vodafone', notes);
-            }
-        } else {
-            completeOrder('cash', notes);
-        }
-    }
-    
-    function openCardModal() { document.getElementById('cardModal').classList.add('active'); }
-    function closeCardModal() { document.getElementById('cardModal').classList.remove('active'); }
-    
-    function processCardPayment() {
-        const cardNumber = document.getElementById('cardNumber').value.trim();
-        const cardName = document.getElementById('cardName').value.trim();
-        const cardExpiry = document.getElementById('cardExpiry').value.trim();
-        const cardCvv = document.getElementById('cardCvv').value.trim();
-        
-        if (!cardNumber || !cardName || !cardExpiry || !cardCvv) {
-            showToast('⚠️ يرجى إدخال جميع بيانات البطاقة');
-            return;
-        }
-        if (!/^\d{16}$/.test(cardNumber.replace(/\s/g, ''))) {
-            showToast('⚠️ رقم البطاقة يجب أن يكون 16 رقماً');
-            return;
-        }
-        if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) {
-            showToast('⚠️ صيغة التاريخ غير صحيحة (MM/YY)');
-            return;
-        }
-        
-        closeCardModal();
-        completeOrder('card', pendingNotes);
-    }
-    
-    function completeOrder(paymentType, notes) {
-        let paymentText = '';
-        if (paymentType === 'cash') paymentText = 'نقدي عند الاستلام';
-        else if (paymentType === 'card') paymentText = 'بطاقة ائتمان';
-        else if (paymentType === 'instapay') paymentText = 'InstaPay (تحويل فوري)';
-        else if (paymentType === 'vodafone') paymentText = 'فودافون كاش';
-        
-        const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-        const total = subtotal + DELIVERY_FEE;
-        const orderNumber = 'ZRS-' + Date.now().toString().slice(-8);
-        const newOrder = { 
-            id: Date.now(), 
-            orderNumber, 
-            customer: { name: currentUser.name, phone: currentUser.phone, address: currentUser.address }, 
-            items: [...cart], 
-            subtotal: subtotal,
-            deliveryFee: DELIVERY_FEE,
-            total: total, 
-            paymentMethod: paymentText, 
-            notes: notes || '',
-            status: 'pending', 
-            createdAt: new Date().toISOString() 
-        };
-        orders.unshift(newOrder);
-        localStorage.setItem('zarias_orders', JSON.stringify(orders));
-        
-        addMessage(newOrder);
-        
-        let message = `✅ تم استلام طلبك!\n📦 رقم: ${orderNumber}\n💰 المجموع: ${subtotal} جنيه\n🚚 سعر التوصيل: ${DELIVERY_FEE} جنيه\n💵 الإجمالي النهائي: ${total} جنيه\n💳 طريقة الدفع: ${paymentText}`;
-        if (paymentType === 'instapay') {
-            message += `\n📱 بريد InstaPay: ${INSTAPAY_EMAIL}\n🔗 رابط الدفع: ${INSTAPAY_URL}`;
-        }
-        if (paymentType === 'vodafone') {
-            message += `\n📱 رابط فودافون كاش: ${VODAFONE_URL}`;
-        }
-        if (notes) message += `\n📝 ملاحظاتك: ${notes}`;
-        alert(message);
-        
-        cart = []; saveCart(); closeCart();
-        document.getElementById('orderNotes').value = '';
-    }
-    
-    function saveUserAndProceed() {
-        const name = document.getElementById('loginName').value, phone = document.getElementById('loginPhone').value, address = document.getElementById('loginAddress').value;
-        if (!name || !phone) { alert('الاسم ورقم الهاتف مطلوبان'); return; }
-        currentUser = { name, phone, address };
-        localStorage.setItem('zarias_user', JSON.stringify(currentUser));
-        document.getElementById('loginModal').classList.remove('active');
-        if (pendingAction === 'checkout') { 
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-            if (paymentMethod === 'card') {
-                document.getElementById('cardModal').classList.add('active');
-            } else if (paymentMethod === 'instapay') {
-                const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-                const total = subtotal + DELIVERY_FEE;
-                if (confirm(`ستنتقل إلى تطبيق InstaPay لتحويل مبلغ ${total} جنيه إلى noor.sis@instapay\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                    window.open(INSTAPAY_URL, '_blank');
-                    completeOrder('instapay', document.getElementById('orderNotes').value);
-                }
-            } else if (paymentMethod === 'vodafone') {
-                const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-                const total = subtotal + DELIVERY_FEE;
-                if (confirm(`ستنتقل إلى رابط فودافون كاش لتحويل مبلغ ${total} جنيه\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                    window.open(VODAFONE_URL, '_blank');
-                    completeOrder('vodafone', document.getElementById('orderNotes').value);
-                }
-            } else {
-                completeOrder('cash', document.getElementById('orderNotes').value);
-            }
-        }
-        pendingAction = null;
-        showToast(`مرحباً ${name}!`);
-    }
-    function skipLogin() { document.getElementById('loginModal').classList.remove('active'); pendingAction = null; }
-    
-    function openAdminPanel() {
-        updateAdminStats();
-        updateOrdersTable();
-        updateProductsTable();
-        document.getElementById('adminPanel').classList.add('active');
-        closeSidebar();
-    }
-    function closeAdminPanel() { document.getElementById('adminPanel').classList.remove('active'); }
-    function updateAdminStats() {
-        const totalOrders = orders.length;
-        const totalRevenue = orders.reduce((sum, o) => sum + o.total, 0);
-        const totalProducts = products.length;
-        const pendingOrders = orders.filter(o => o.status === 'pending').length;
-        document.getElementById('adminStats').innerHTML = `
-            <div class="stat-card"><div class="number">${totalOrders}</div><div class="label">الطلبات</div></div>
-            <div class="stat-card"><div class="number">${totalRevenue} ج</div><div class="label">المبيعات</div></div>
-            <div class="stat-card"><div class="number">${totalProducts}</div><div class="label">المنتجات</div></div>
-            <div class="stat-card"><div class="number">${pendingOrders}</div><div class="label">قيد المعالجة</div></div>
-        `;
-    }
-    function updateOrdersTable() {
-        const tbody = document.getElementById('ordersTableBody');
-        if (orders.length === 0) { tbody.innerHTML = '<td><td colspan="8">لا توجد طلبات</td></td>'; return; }
-        tbody.innerHTML = orders.map(order => `
-            <tr>
-                <td>${order.orderNumber}</td>
-                <td>${order.customer.name}</td>
-                <td>${order.customer.phone}</td>
-                <td>${order.subtotal} ج</td>
-                <td>${order.deliveryFee} ج</td>
-                <td>${order.total} ج</td>
-                <td>
-                    <select onchange="updateOrderStatus('${order.orderNumber}', this.value)">
-                        <option ${order.status === 'pending' ? 'selected' : ''} value="pending">قيد المعالجة</option>
-                        <option ${order.status === 'shipped' ? 'selected' : ''} value="shipped">تم الشحن</option>
-                        <option ${order.status === 'delivered' ? 'selected' : ''} value="delivered">تم التسليم</option>
-                    </select>
-                 </td>
-                <td>${order.notes || '-'}</td>
-            </table>
-        `).join('');
-    }
-    function updateOrderStatus(orderNumber, newStatus) {
-        const order = orders.find(o => o.orderNumber === orderNumber);
-        if (order) { 
-            order.status = newStatus; 
-            localStorage.setItem('zarias_orders', JSON.stringify(orders));
-            const msg = messages.find(m => m.orderNumber === orderNumber);
-            if (msg) msg.status = newStatus;
-            localStorage.setItem('zarias_messages', JSON.stringify(messages));
-            showToast('✅ تم تحديث حالة الطلب');
-        }
-    }
-    function updateProductsTable() {
-        const tbody = document.getElementById('productsTableBody');
-        tbody.innerHTML = products.map(p => `
-            <tr>
-                <td>${p.name}</td>
-                <td>${p.price} ج</td>
-                <td>${p.category}</td>
-                <td><button onclick="deleteProduct(${p.id})">حذف</button> <button onclick="openEditModal(${p.id})">تعديل</button></td>
-            </tr>
-        `).join('');
-    }
-    
-    function openTrackModal() { document.getElementById('trackModal').classList.add('active'); closeSidebar(); }
-    function closeTrackModal() { document.getElementById('trackModal').classList.remove('active'); }
-    function trackOrder() {
-        const orderNumber = document.getElementById('trackOrderNumber').value.trim();
-        if (!orderNumber) { showToast('⚠️ يرجى إدخال رقم الطلب'); return; }
-        const order = orders.find(o => o.orderNumber === orderNumber);
-        if (!order) { document.getElementById('trackResult').innerHTML = '<div style="color:#f44336;">❌ لا يوجد طلب بهذا الرقم</div>'; return; }
-        const statusText = { pending: 'قيد المعالجة', shipped: 'تم الشحن', delivered: 'تم التسليم' };
-        document.getElementById('trackResult').innerHTML = `
-            <div><strong>حالة الطلب:</strong> ${statusText[order.status]}</div>
-            <div><strong>التاريخ:</strong> ${new Date(order.createdAt).toLocaleDateString('ar-EG')}</div>
-            <div><strong>المجموع:</strong> ${order.subtotal} جنيه</div>
-            <div><strong>سعر التوصيل:</strong> ${order.deliveryFee} جنيه</div>
-            <div><strong>الإجمالي النهائي:</strong> ${order.total} جنيه</div>
-            <div><strong>طريقة الدفع:</strong> ${order.paymentMethod}</div>
-            ${order.notes ? `<div><strong>ملاحظاتك:</strong> ${order.notes}</div>` : ''}
-        `;
-    }
-    
-    function showAbout() { document.getElementById('aboutModal').classList.add('active'); closeSidebar(); }
-    function closeAbout() { document.getElementById('aboutModal').classList.remove('active'); }
-    function showContact() { document.getElementById('contactModal').classList.add('active'); closeSidebar(); }
-    function closeContact() { document.getElementById('contactModal').classList.remove('active'); }
-    function sendMessage() { showToast('✅ تم إرسال رسالتك!'); closeContact(); }
-    
-    function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.getElementById('overlay').classList.add('active'); }
-    function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('active'); }
-    function openCart() { document.getElementById('cartSidebar').classList.add('open'); updateCartTotal(); }
-    function closeCart() { document.getElementById('cartSidebar').classList.remove('open'); }
-    function showToast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.innerText = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2000); }
-    function selectCategory(cat, el) { currentCategory = cat; document.querySelectorAll('.sidebar-category').forEach(c => c.classList.remove('active')); el.classList.add('active'); renderProducts(); closeSidebar(); }
-    function toggleSearch() { document.getElementById('searchModal').classList.toggle('active'); if (document.getElementById('searchModal').classList.contains('active')) document.getElementById('searchInput').focus(); }
-    
-    document.getElementById('searchInput').addEventListener('input', handleSearch);
-    document.getElementById('searchBtn').onclick = toggleSearch;
-    document.getElementById('loginBtn').onclick = () => document.getElementById('loginModal').classList.add('active');
-    document.getElementById('cartBtn').onclick = openCart;
-    document.getElementById('messagesBtn').onclick = openMessagesModal;
-    
-    document.addEventListener('click', (e) => { 
-        const modal = document.getElementById('searchModal'); 
-        const btn = document.getElementById('searchBtn'); 
-        if (modal && btn && !modal.contains(e.target) && !btn.contains(e.target)) modal.classList.remove('active'); 
-    });
-    
     const savedFav = localStorage.getItem('zarias_favorites');
-    const savedProducts = localStorage.getItem('zarias_products');
-    if (savedProducts) products = JSON.parse(savedProducts);
     if (savedFav) favorites = JSON.parse(savedFav);
     document.getElementById('favoriteCount').innerText = favorites.length;
-    updateMessagesCount();
     renderProducts();
-    
-    startSlider();
-    updateSlider();
-</script>
-</body>
-</html>if (index === -1) { favorites.push(product); showToast(`❤️ تم إضافة ${product.name} إلى المفضلة`); }
-        else { favorites.splice(index, 1); showToast(`💔 تم إزالة ${product.name} من المفضلة`); }
-        localStorage.setItem('zarias_favorites', JSON.stringify(favorites));
-        document.getElementById('favoriteCount').innerText = favorites.length;
-        renderProducts();
-    }
-    
-    function addToCart(productId) {
-        const product = products.find(p => p.id === productId);
-        const existing = cart.find(item => item.id === productId);
-        if (existing) existing.quantity++; else cart.push({ ...product, quantity: 1 });
-        saveCart(); showToast(`✅ تم إضافة ${product.name}`);
-    }
-    
-    function saveCart() { 
-        localStorage.setItem('zarias_cart', JSON.stringify(cart)); 
-        updateCartUI();
-        updateCartTotal();
-    }
-    
-    function updateCartUI() {
-        const totalItems = cart.reduce((s, i) => s + i.quantity, 0);
-        document.getElementById('cartCount').innerText = totalItems;
-        const container = document.getElementById('cartItemsList');
-        const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-        if (cart.length === 0) container.innerHTML = '<div style="text-align:center; padding:2rem;">🛍️ السلة فارغة</div>';
-        else container.innerHTML = cart.map(item => `
-            <div class="cart-item">
-                <img src="${item.image}">
-                <div class="cart-item-info">
-                    <h4>${item.name}</h4>
-                    <div>${item.price} ج × ${item.quantity}</div>
-                    <div><button onclick="updateQuantity(${item.id}, -1)">-</button><span>${item.quantity}</span><button onclick="updateQuantity(${item.id}, 1)">+</button><button onclick="removeFromCart(${item.id})">حذف</button></div>
-                </div>
-            </div>
-        `).join('');
-        document.getElementById('cartSubtotal').innerHTML = `المجموع: ${subtotal} جنيه`;
-        updateCartTotal();
-    }
-    
-    function updateQuantity(id, delta) { 
-        const item = cart.find(i => i.id === id); 
-        if (item) { 
-            item.quantity += delta; 
-            if (item.quantity <= 0) cart = cart.filter(i => i.id !== id); 
-            saveCart(); 
-        } 
-    }
-    
-    function removeFromCart(id) { 
-        cart = cart.filter(i => i.id !== id); 
-        saveCart(); 
-        showToast('🗑️ تم الإزالة'); 
-    }
-    
-    function proceedToPayment() {
-        if (cart.length === 0) { showToast('⚠️ السلة فارغة'); return; }
-        const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-        const notes = document.getElementById('orderNotes').value;
-        
-        if (!currentUser) { 
-            pendingAction = 'checkout';
-            pendingNotes = notes;
-            document.getElementById('loginModal').classList.add('active'); 
-            return; 
-        }
-        
-        if (paymentMethod === 'card') {
-            document.getElementById('cardModal').classList.add('active');
-        } else if (paymentMethod === 'instapay') {
-            const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-            const total = subtotal + DELIVERY_FEE;
-            if (confirm(`ستنتقل إلى تطبيق InstaPay لتحويل مبلغ ${total} جنيه إلى noor.sis@instapay\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                window.open(INSTAPAY_URL, '_blank');
-                completeOrder('instapay', notes);
-            }
-        } else if (paymentMethod === 'vodafone') {
-            const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-            const total = subtotal + DELIVERY_FEE;
-            if (confirm(`ستنتقل إلى رابط فودافون كاش لتحويل مبلغ ${total} جنيه\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                window.open(VODAFONE_URL, '_blank');
-                completeOrder('vodafone', notes);
-            }
-        } else {
-            completeOrder('cash', notes);
-        }
-    }
-    
-    function openCardModal() { document.getElementById('cardModal').classList.add('active'); }
-    function closeCardModal() { document.getElementById('cardModal').classList.remove('active'); }
-    
-    function processCardPayment() {
-        const cardNumber = document.getElementById('cardNumber').value.trim();
-        const cardName = document.getElementById('cardName').value.trim();
-        const cardExpiry = document.getElementById('cardExpiry').value.trim();
-        const cardCvv = document.getElementById('cardCvv').value.trim();
-        
-        if (!cardNumber || !cardName || !cardExpiry || !cardCvv) {
-            showToast('⚠️ يرجى إدخال جميع بيانات البطاقة');
-            return;
-        }
-        if (!/^\d{16}$/.test(cardNumber.replace(/\s/g, ''))) {
-            showToast('⚠️ رقم البطاقة يجب أن يكون 16 رقماً');
-            return;
-        }
-        if (!/^\d{2}\/\d{2}$/.test(cardExpiry)) {
-            showToast('⚠️ صيغة التاريخ غير صحيحة (MM/YY)');
-            return;
-        }
-        
-        closeCardModal();
-        completeOrder('card', pendingNotes);
-    }
-    
-    function completeOrder(paymentType, notes) {
-        let paymentText = '';
-        if (paymentType === 'cash') paymentText = 'نقدي عند الاستلام';
-        else if (paymentType === 'card') paymentText = 'بطاقة ائتمان';
-        else if (paymentType === 'instapay') paymentText = 'InstaPay (تحويل فوري)';
-        else if (paymentType === 'vodafone') paymentText = 'فودافون كاش';
-        
-        const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-        const total = subtotal + DELIVERY_FEE;
-        const orderNumber = 'ZRS-' + Date.now().toString().slice(-8);
-        const newOrder = { 
-            id: Date.now(), 
-            orderNumber, 
-            customer: { name: currentUser.name, phone: currentUser.phone, address: currentUser.address }, 
-            items: [...cart], 
-            subtotal: subtotal,
-            deliveryFee: DELIVERY_FEE,
-            total: total, 
-            paymentMethod: paymentText, 
-            notes: notes || '',
-            status: 'pending', 
-            createdAt: new Date().toISOString() 
-        };
-        orders.unshift(newOrder);
-        localStorage.setItem('zarias_orders', JSON.stringify(orders));
-        
-        addMessage(newOrder);
-        
-        let message = `✅ تم استلام طلبك!\n📦 رقم: ${orderNumber}\n💰 المجموع: ${subtotal} جنيه\n🚚 سعر التوصيل: ${DELIVERY_FEE} جنيه\n💵 الإجمالي النهائي: ${total} جنيه\n💳 طريقة الدفع: ${paymentText}`;
-        if (paymentType === 'instapay') {
-            message += `\n📱 بريد InstaPay: ${INSTAPAY_EMAIL}\n🔗 رابط الدفع: ${INSTAPAY_URL}`;
-        }
-        if (paymentType === 'vodafone') {
-            message += `\n📱 رابط فودافون كاش: ${VODAFONE_URL}`;
-        }
-        if (notes) message += `\n📝 ملاحظاتك: ${notes}`;
-        alert(message);
-        
-        cart = []; saveCart(); closeCart();
-        document.getElementById('orderNotes').value = '';
-    }
-    
-    function saveUserAndProceed() {
-        const name = document.getElementById('loginName').value, phone = document.getElementById('loginPhone').value, address = document.getElementById('loginAddress').value;
-        if (!name || !phone) { alert('الاسم ورقم الهاتف مطلوبان'); return; }
-        currentUser = { name, phone, address };
-        localStorage.setItem('zarias_user', JSON.stringify(currentUser));
-        document.getElementById('loginModal').classList.remove('active');
-        if (pendingAction === 'checkout') { 
-            const paymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
-            if (paymentMethod === 'card') {
-                document.getElementById('cardModal').classList.add('active');
-            } else if (paymentMethod === 'instapay') {
-                const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-                const total = subtotal + DELIVERY_FEE;
-                if (confirm(`ستنتقل إلى تطبيق InstaPay لتحويل مبلغ ${total} جنيه إلى noor.sis@instapay\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                    window.open(INSTAPAY_URL, '_blank');
-                    completeOrder('instapay', document.getElementById('orderNotes').value);
-                }
-            } else if (paymentMethod === 'vodafone') {
-                const subtotal = cart.reduce((s, i) => s + (i.price * i.quantity), 0);
-                const total = subtotal + DELIVERY_FEE;
-                if (confirm(`ستنتقل إلى رابط فودافون كاش لتحويل مبلغ ${total} جنيه\nسعر التوصيل: ${DELIVERY_FEE} جنيه\nهل تريد المتابعة؟`)) {
-                    window.open(VODAFONE_URL, '_blank');
-                    completeOrder('vodafone', document.getElementById('orderNotes').value);
-                }
-            } else {
-                completeOrder('cash', document.getElementById('orderNotes').value);
-            }
-        }
-        pendingAction = null;
-        showToast(`مرحباً ${name}!`);
-    }
-    function skipLogin() { document.getElementById('loginModal').classList.remove('active'); pendingAction = null; }
-    
-    function openAdminPanel() {
-        updateAdminStats();
-        updateOrdersTable();
-        updateProductsTable();
-        document.getElementById('adminPanel').classList.add('active');
-        closeSidebar();
-    }
-    function closeAdminPanel() { document.getElementById('adminPanel').classList.remove('active'); }
-    function updateAdminStats() {
-        const totalOrders = orders.length;
-        const totalRevenue = orders.reduce((sum, o) => sum + o.total, 0);
-        const totalProducts = products.length;
-        const pendingOrders = orders.filter(o => o.status === 'pending').length;
-        document.getElementById('adminStats').innerHTML = `
-            <div class="stat-card"><div class="number">${totalOrders}</div><div class="label">الطلبات</div></div>
-            <div class="stat-card"><div class="number">${totalRevenue} ج</div><div class="label">المبيعات</div></div>
-            <div class="stat-card"><div class="number">${totalProducts}</div><div class="label">المنتجات</div></div>
-            <div class="stat-card"><div class="number">${pendingOrders}</div><div class="label">قيد المعالجة</div></div>
-        `;
-    }
-    function updateOrdersTable() {
-        const tbody = document.getElementById('ordersTableBody');
-        if (orders.length === 0) { tbody.innerHTML = '<td><td colspan="8">لا توجد طلبات</td></td>'; return; }
-        tbody.innerHTML = orders.map(order => `
-            <tr>
-                <td>${order.orderNumber}</td>
-                <td>${order.customer.name}</td>
-                <td>${order.customer.phone}</td>
-                <td>${order.subtotal} ج</td>
-                <td>${order.deliveryFee} ج</td>
-                <td>${order.total} ج</td>
-                <td>
-                    <select onchange="updateOrderStatus('${order.orderNumber}', this.value)">
-                        <option ${order.status === 'pending' ? 'selected' : ''} value="pending">قيد المعالجة</option>
-                        <option ${order.status === 'shipped' ? 'selected' : ''} value="shipped">تم الشحن</option>
-                        <option ${order.status === 'delivered' ? 'selected' : ''} value="delivered">تم التسليم</option>
-                    </select>
-                 </td>
-                <td>${order.notes || '-'}</td>
-            </table>
-        `).join('');
-    }
-    function updateOrderStatus(orderNumber, newStatus) {
-        const order = orders.find(o => o.orderNumber === orderNumber);
-        if (order) { 
-            order.status = newStatus; 
-            localStorage.setItem('zarias_orders', JSON.stringify(orders));
-            const msg = messages.find(m => m.orderNumber === orderNumber);
-            if (msg) msg.status = newStatus;
-            localStorage.setItem('zarias_messages', JSON.stringify(messages));
-            showToast('✅ تم تحديث حالة الطلب');
-        }
-    }
-    function updateProductsTable() {
-        const tbody = document.getElementById('productsTableBody');
-        tbody.innerHTML = products.map(p => `
-            <tr>
-                <td>${p.name}</td>
-                <td>${p.price} ج</td>
-                <td>${p.category}</td>
-                <td><button onclick="deleteProduct(${p.id})">حذف</button> <button onclick="openEditModal(${p.id})">تعديل</button></td>
-            </tr>
-        `).join('');
-    }
-    
-    function openTrackModal() { document.getElementById('trackModal').classList.add('active'); closeSidebar(); }
-    function closeTrackModal() { document.getElementById('trackModal').classList.remove('active'); }
-    function trackOrder() {
-        const orderNumber = document.getElementById('trackOrderNumber').value.trim();
-        if (!orderNumber) { showToast('⚠️ يرجى إدخال رقم الطلب'); return; }
-        const order = orders.find(o => o.orderNumber === orderNumber);
-        if (!order) { document.getElementById('trackResult').innerHTML = '<div style="color:#f44336;">❌ لا يوجد طلب بهذا الرقم</div>'; return; }
-        const statusText = { pending: 'قيد المعالجة', shipped: 'تم الشحن', delivered: 'تم التسليم' };
-        document.getElementById('trackResult').innerHTML = `
-            <div><strong>حالة الطلب:</strong> ${statusText[order.status]}</div>
-            <div><strong>التاريخ:</strong> ${new Date(order.createdAt).toLocaleDateString('ar-EG')}</div>
-            <div><strong>المجموع:</strong> ${order.subtotal} جنيه</div>
-            <div><strong>سعر التوصيل:</strong> ${order.deliveryFee} جنيه</div>
-            <div><strong>الإجمالي النهائي:</strong> ${order.total} جنيه</div>
-            <div><strong>طريقة الدفع:</strong> ${order.paymentMethod}</div>
-            ${order.notes ? `<div><strong>ملاحظاتك:</strong> ${order.notes}</div>` : ''}
-        `;
-    }
-    
-    function showAbout() { document.getElementById('aboutModal').classList.add('active'); closeSidebar(); }
-    function closeAbout() { document.getElementById('aboutModal').classList.remove('active'); }
-    function showContact() { document.getElementById('contactModal').classList.add('active'); closeSidebar(); }
-    function closeContact() { document.getElementById('contactModal').classList.remove('active'); }
-    function sendMessage() { showToast('✅ تم إرسال رسالتك!'); closeContact(); }
-    
-    function openSidebar() { document.getElementById('sidebar').classList.add('open'); document.getElementById('overlay').classList.add('active'); }
-    function closeSidebar() { document.getElementById('sidebar').classList.remove('open'); document.getElementById('overlay').classList.remove('active'); }
-    function openCart() { document.getElementById('cartSidebar').classList.add('open'); updateCartTotal(); }
-    function closeCart() { document.getElementById('cartSidebar').classList.remove('open'); }
-    function showToast(msg) { const t = document.createElement('div'); t.className = 'toast'; t.innerText = msg; document.body.appendChild(t); setTimeout(() => t.remove(), 2000); }
-    function selectCategory(cat, el) { currentCategory = cat; document.querySelectorAll('.sidebar-category').forEach(c => c.classList.remove('active')); el.classList.add('active'); renderProducts(); closeSidebar(); }
-    function toggleSearch() { document.getElementById('searchModal').classList.toggle('active'); if (document.getElementById('searchModal').classList.contains('active')) document.getElementById('searchInput').focus(); }
-    
-    document.getElementById('searchInput').addEventListener('input', handleSearch);
-    document.getElementById('searchBtn').onclick = toggleSearch;
-    document.getElementById('loginBtn').onclick = () => document.getElementById('loginModal').classList.add('active');
-    document.getElementById('cartBtn').onclick = openCart;
-    document.getElementById('messagesBtn').onclick = openMessagesModal;
-    
-    document.addEventListener('click', (e) => { 
-        const modal = document.getElementById('searchModal'); 
-        const btn = document.getElementById('searchBtn'); 
-        if (modal && btn && !modal.contains(e.target) && !btn.contains(e.target)) modal.classList.remove('active'); 
-    });
-    
-    const savedFav = localStorage.getItem('zarias_favorites');
-    const savedProducts = localStorage.getItem('zarias_products');
-    if (savedProducts) products = JSON.parse(savedProducts);
-    if (savedFav) favorites = JSON.parse(savedFav);
-    document.getElementById('favoriteCount').innerText = favorites.length;
-    updateMessagesCount();
-    renderProducts();
-    
-    startSlider();
-    updateSlider();
 </script>
 </body>
 </html>
